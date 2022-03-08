@@ -9,4 +9,9 @@ RSpec.describe "make_snippet" do
     result = make_snippet("I love TDD")
     expect(result).to eq "I love TDD"
   end
+
+  it "returns an empty string as an empty string" do
+    result = make_snippet("")
+    expect(result).to eq ""
+  end
 end
