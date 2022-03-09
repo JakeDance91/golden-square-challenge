@@ -1,15 +1,20 @@
 class ToDo
-  def initializer
-    # array for todos? 
+  def initialize
+    @todos = []
   end
 
-  def add_todo(text) # test is a string representing a todo entry
-  # if empty returns error
-  # pushes to todo array
+  def add_todo(text)
+    fail "No task given." if text.empty?
+    @todos << text
   end
 
   def list
-  # Returns a list of strings from todo list
+    return @todos
+  end
+
+  def todo_complete(text)
+    fail "No such task." unless @todos.include? text
+    @todos.delete(text)
   end
 
 end  

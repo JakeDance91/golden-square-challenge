@@ -46,5 +46,12 @@ RSpec.describe GrammarStats do
     expect(result).to eq "#{75} + %"
   end
 
-  it "returns 33% when 1 check is true and one is false"
-end
+  it "returns 33% when 1 check is true and one is false" do
+  grammar = GrammarStats.new
+    grammar.check("I'm checking if this is grammatically correct.")
+    grammar.check("i'm checking if this is grammatically correct")
+    grammar.check("i'm checking if this is grammatically correct.")
+    result = grammar.percentage_good
+    expect(result).to eq "#{33} + %"
+  end
+end 

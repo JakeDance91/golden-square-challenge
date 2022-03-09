@@ -5,6 +5,10 @@ As a user
 So that I can keep track of my tasks
 I want a program that I can add todo tasks to and see a list of them.
 
+As a user
+So that I can focus on tasks to complete
+I want to mark tasks as complete and have them disappear from the list.
+
 ## Design the Class Interface
 Include the initializer and public methods with all parameters and return values.
 
@@ -21,6 +25,11 @@ class ToDo
 
   def list
   # Returns a list of strings from todo list
+  end
+
+  def todo_complete(text)
+  # Removes matching string from array 
+  # fails if no matching string
   end
 
 end  
