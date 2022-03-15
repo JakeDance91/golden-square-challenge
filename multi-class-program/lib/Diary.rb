@@ -30,6 +30,10 @@ class Diary
   end
   
   def contact_list
+    return @list.each do |entry|
+      entry.search_number
+    end
+    
   # searches all diary entries for mobile number within the string and pushes to @contact_no
   # returns @contact_no
   end

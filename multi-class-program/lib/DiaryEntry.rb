@@ -21,4 +21,16 @@ class DiaryEntry
     (count_words / wpm.to_f).ceil
   end
 
+  def search_number
+    contents.scan(/\d/).join
+  end
 end
+
+# search_number
+# # contents.each do |item|
+#   item.scan
+
+#   if search_number = true
+#     @array << item
+#   end
+

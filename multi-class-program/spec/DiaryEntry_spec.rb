@@ -11,4 +11,9 @@ RSpec.describe DiaryEntry do
     result = new_entry.reading_time(11)
     expect(result).to eq 1
   end
+  it "returns a phone number from a string if it contains one" do
+    new_entry = DiaryEntry.new("My Title", "This is my first day, I got person's number - it is 07777777777")
+    result = new_entry.search_number
+    expect(result).to eq "07777777777"
+  end
 end
