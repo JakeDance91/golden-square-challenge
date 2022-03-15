@@ -54,6 +54,7 @@ end
 def contact_list
 # searches all diary entries for mobile number within the string and pushes to @contact_no
 # returns @contact_no
+end
 
 class DiaryEntry(title, contents)
 def initialize
@@ -175,8 +176,33 @@ diary.add(new_entry1)
 diary.add(new_entry2)
 diary.read_within_time(1, 6) # => new_entry1
 
+"when we call contact_list, it returns list of contact numbers from diary entries"
+
+diary = Diary.new
+new_entry1 = DiaryEntry.new("Day 1", "I called my friend today on 07777777777")
+new_entry2 = DiaryEntry.new("Day 2", "I called my other friend today on 07878787878")
+diary.add(new_entry1)
+diary.add(new_entry2)
+diary.contact_list # => ["07777777777", "07878787878"]
+
 ```
 4. Create Examples as Unit Tests
+
+```ruby
+
+"when we define a diary entry, we can use count_words to count words in that string"
+
+new_entry = DiaryEntry.new("Day 1", "This is my first day")
+new_entry.count_words # => 5 (words as integer)
+
+"when we define a diary entry, we can use reading_time to calculate the time it would take to read"
+
+new_entry = DiaryEntry.new("Day 1", "This is my first day")
+new_entry.reading_time(5) # => 1 (minutes as integer)
+
+
+
+```
 
 
 5. Implement the Behaviour
