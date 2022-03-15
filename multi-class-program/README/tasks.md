@@ -75,7 +75,7 @@ def count_words
 end
 
 def reading_time(wpm)
-# returns reading time in minutes as an intiger
+# returns reading time oc contents in minutes as an intiger
 end
 
 class TodoList
