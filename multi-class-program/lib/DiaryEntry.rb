@@ -2,6 +2,7 @@ class DiaryEntry
   def initialize(title, contents)
     @title = title
     @contents = contents
+    @mobile_number = has_mobile_number?(@contents)
   end
   
   def title
@@ -10,6 +11,10 @@ class DiaryEntry
   
   def contents 
     @contents
+  end
+
+  def format
+    "Title: #{@title}. Entry: #{@contents}\n"    
   end
   
   def count_words
@@ -21,9 +26,25 @@ class DiaryEntry
     (count_words / wpm.to_f).ceil
   end
 
-  def search_number
-    contents.scan(/\d/).join
+  def mobile_number
+    @mobile_number
   end
+
+  def has_mobile_number?(contents)
+    contents.split.each do |word|
+      if (word[-1] == ".") || (word[-1] == "!") || (word[-1] == "?") || (word[-1] == ",")
+        word.chop!
+      end
+      if (word.length == 11) && (word[0] == "0") && (word[1] == "7") && (word !~ /\D/)
+        return word
+      end
+    end
+    return nil
+  end
+
+  # def search_number
+  #   contents.scan(/\d/).join
+  # end
 end
 
 # search_number
